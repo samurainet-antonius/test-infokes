@@ -13,29 +13,39 @@ Clone repositori ini:
 ```bash
 git clone https://github.com/samurainet-antonius/test-infokes.git
 cd test-infokes
-```bash
+```
 
 ### 2. Install Dependensi
 ```bash
 pnpm install
-```bash
+```
 
-### 3. Menjalankan Backend
+### 3. Konfigurasi File .env
+- **Frontend (FE)**: Buat file .env di folder FE berdasarkan file .env.example.
+- **Backend (BE)**: Buat file .env di folder BE berdasarkan file .env.example.
+
+### 4. Menjalankan Backend
 ```bash
 cd BE
 bun run src/index.ts
-```bash
+```
 
-### 4. Menjalankan FE
+### 5. Menjalankan FE
 ```bash
 cd FE
 pnpm run dev
-```bash
+```
 
-### 5. Menjalankan Backend dan Frontend Secara Bersamaan
-```bash
-pnpm run dev:frontend & pnpm run dev:backend
-```bash
+### 6. Menjalankan Backend dan Frontend Secara Bersamaan
+```pnpm run dev:frontend & pnpm run dev:backend```
 
-**Note**: Jangan lupa membuat file .env di folder FE dan BE (contoh env bisa melihat file .env.example di folder FE dan BE)
+**Catatan Penting**: 
+1. **Prisma**: Jika terdapat error terkait Prisma, jalankan perintah berikut di folder ```BE```:
+   ```bash
+    pnpm prisma generate
+    ```
+2. **Port Default**:
+   - **Frontend**: ```http://localhost:8080```
+   - **Backend**: Port sesuai dengan konfigurasi pada file ```.env```.
+3. **pnpm-workspace.yaml**: Pastikan file ini ada di root proyek agar monorepo dapat dikelola dengan baik oleh pnpm
 
