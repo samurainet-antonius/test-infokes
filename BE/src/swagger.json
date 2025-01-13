@@ -1,0 +1,68 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Elysia REST API",
+    "version": "1.0.0",
+    "description": "API for managing folders"
+  },
+  "paths": {
+    "/folders": {
+      "get": {
+        "summary": "Retrieve all folders",
+        "responses": {
+          "200": {
+            "description": "List of folders",
+            "content": {
+              "application/json": {
+                "example": [{ "id": 1, "name": "Root", "parentId": null }]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a folder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": { "name": "New Folder", "parentId": null }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Folder created",
+            "content": {
+              "application/json": {
+                "example": { "id": 2, "name": "Child Folder", "parentId": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/folders/{id}": {
+      "get": {
+        "summary": "Retrieve folder by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Folder details",
+            "content": {
+              "application/json": {
+                "example": { "id": 1, "name": "Root", "parentId": null }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+packages:
+  - "FE" # Folder frontend
+  - "BE" # Folder backend
